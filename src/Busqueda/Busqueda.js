@@ -1,15 +1,17 @@
-import React from "react";//referencia a la libreria de react
+import React from "react";
 import './Busqueda.css';
+import { DirectorioContext } from "../Contex/DirectorioProvider";
 
-function Busqueda(props) { //se declara la funcion y el nombre del archivo
+function Busqueda() {
+    const {TextoBusqueda, setTextoBusqueda} = React.useContext(DirectorioContext);
  
     function onBusquedaChange(event) {
-        props.setTextoBusqueda(event.target.value);
+        setTextoBusqueda(event.target.value);
     }
-    return ( //esto es lo que se muestra en la pagina web
+    return (
         <React.Fragment>
-            <input onChange={onBusquedaChange}></input>
+            <input onChange={onBusquedaChange} value={TextoBusqueda}></input>
         </React.Fragment>
     );
 }
-export default Busqueda; //
+export default Busqueda; 

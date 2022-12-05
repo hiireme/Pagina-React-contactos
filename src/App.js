@@ -4,59 +4,46 @@ import Busqueda from './Busqueda/Busqueda';
 import ListaContactos from './ListaContactos';
 import Contacto from './Contacto';
 import AgregaContacto from './AgregaContacto';
+import { DirectorioContext, DirectorioProvider } from './Contex/DirectorioProvider';
+
 function App() {
-
-  let Contactos=[
-    {
-      nombre:"Regina",
-      telefono:"3221088196",
-      correo:"ti1801014@academica.utb.edu.mx"
-    },
-    {
-      nombre:"Jhosep",
-      telefono:"3112468469",
-      correo:"jhosep@mail.com"
-    },
-    {
-      nombre:"Edgar",
-      telefono:"322111111",
-      correo:"edgar@mail.com"
-    }
-  ]
-
-  let [textoBusqueda, setTextoBusqueda] = React.useState('');
-  let contactosFiltrados=[];
-
-    if(textoBusqueda.length>0){
-      let textoBusquedaLowerCase=textoBusqueda.toLowerCase();
-      contactosFiltrados=Contactos.filter((contacto)=>{
-        return contacto.nombre.toLowerCase().includes(textoBusquedaLowerCase);
-      })
-    }
-    else{
-      contactosFiltrados=Contactos;
-    }
-
+  let modal = false;
+  
   return (
-    <React.Fragment>
-      <h1>DIRECTORIO</h1>
-      <Busqueda textoBusqueda={textoBusqueda} setTextoBusqueda={setTextoBusqueda}/>
-      <ListaContactos>
+    <DirectorioProvider>
+      <DirectorioContext.Consumer>
         {
-          contactosFiltrados.map((contacto)=>{
-            return(
-              <Contacto
-                nombre={contacto.nombre}
-                telefono={contacto.telefono}
-                correo={contacto.correo}
-              />
-            )
-          })
+          ({
+            contactosFiltrados,
+            borrarContacto,
+            contadorContactos,
+            modal,
+            setModal
+          }) => (
+            <React.Fragment>
+              <h1>DIRECTORIO [{contadorContactos}]</h1>
+              <Busqueda />
+              <button onClick={()=>{setModal(true)}}>Agregar Contacto</button>
+              <ListaContactos>
+                {
+                  contactosFiltrados.map((contacto) => {
+                    return (
+                      <Contacto
+                        nombre={contacto.nombre}
+                        telefono={contacto.telefono}
+                        correo={contacto.correo}
+                        borrarContacto={() => { borrarContacto(contacto.nombre) }}
+                      />
+                    )
+                  })
+                }
+              </ListaContactos>
+              {modal && <AgregaContacto />}
+            </React.Fragment>
+          )
         }
-        
-      </ListaContactos>
-      <AgregaContacto/>
-    </React.Fragment>
+      </DirectorioContext.Consumer>
+    </DirectorioProvider>
   );
 }
 
