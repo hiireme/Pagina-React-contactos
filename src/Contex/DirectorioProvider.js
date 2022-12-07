@@ -16,7 +16,7 @@ function DirectorioProvider(props) {
     let [textoBusqueda, setTextoBusqueda] = React.useState('');
     let [ContactosState, setContactosState] = React.useState(Contactos)
     let contactosFiltrados = [];
-    let [modal, setModal]= React.useState(false);
+    let [Modal, setModal]= React.useState(false);
 
     function guardarContacto(contacto) {
         let contactosTemporal=[...ContactosState];
@@ -60,7 +60,7 @@ function DirectorioProvider(props) {
                 setContactosState,
                 borrarContacto,
                 contadorContactos,
-                modal,
+                Modal,
                 setModal,
                 guardarContacto
             }}>

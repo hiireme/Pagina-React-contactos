@@ -10,7 +10,7 @@ function Busqueda() {
     }
     return (
         <React.Fragment>
-            <input onChange={onBusquedaChange} value={TextoBusqueda}></input>
+            <input className="Buscador" onChange={onBusquedaChange} value={TextoBusqueda}></input>
         </React.Fragment>
     );
 }

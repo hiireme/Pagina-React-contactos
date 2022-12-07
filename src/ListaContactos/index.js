@@ -1,8 +1,9 @@
 import React from "react";
+import './ListaContactos.css';
 
 function ListaContactos(props) {
     return(
-        <div>
+        <div className="MisContactos">
             <h2>Mis Contactos</h2>
             {props.children}
         </div>

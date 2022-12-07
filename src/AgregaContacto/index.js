@@ -6,7 +6,7 @@ import {DirectorioContext} from'../Contex/DirectorioProvider';
 
 function AgregaContacto() {
 
-    const [setModal, guardarContacto]=React.useContext(DirectorioContext);
+    const {setModal, guardarContacto}=React.useContext(DirectorioContext);
     const [contact,setcontact]=React.useState({
         nombre:'',
         correo:'',
@@ -29,7 +29,10 @@ function AgregaContacto() {
         setcontact(contactoTemporal);
     }
 
-    function onClickbtnBorrar() { }
+    function onClickbtnBorrar() { 
+        setModal(false);
+    }
+    
     function onClickbtnAgregar(event) {
         event.preventDefault();
         guardarContacto(contact);
@@ -37,8 +40,8 @@ function AgregaContacto() {
      }
 
     return (
-        <div>
-            <form>
+        <div className="modal">
+            <form className="modal_container">
                 <input typeof="nombre" placeholder="Nombre" onChange={onChangenombre}></input>
                 <input typeof="correo" placeholder="Correo" onChange={onChangecorreo}></input>
                 <input typeof="telefono" placeholder="Telefono" onChange={onChangetelefono}></input>

@@ -9,10 +9,12 @@ function Contacto(props) {
     }
     return (
         <div>
-            <p>{props.nombre}</p>
-            <p>{props.telefono}</p>
-            <p>{props.correo}</p>
-            <button onClick={borrar}>Borrar</button>
+            <div className="contenedorContacto">
+                <p>{props.nombre}</p>
+                <p>{props.telefono}</p>
+                <p>{props.correo}</p>
+                <button className="btnBorrar" onClick={borrar}>Borrar</button>
+            </div>
         </div>
     )
 }

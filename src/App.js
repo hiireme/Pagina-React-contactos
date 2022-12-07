@@ -7,8 +7,7 @@ import AgregaContacto from './AgregaContacto';
 import { DirectorioContext, DirectorioProvider } from './Contex/DirectorioProvider';
 
 function App() {
-  let modal = false;
-  
+
   return (
     <DirectorioProvider>
       <DirectorioContext.Consumer>
@@ -17,13 +16,15 @@ function App() {
             contactosFiltrados,
             borrarContacto,
             contadorContactos,
-            modal,
+            Modal,
             setModal
           }) => (
             <React.Fragment>
-              <h1>DIRECTORIO [{contadorContactos}]</h1>
-              <Busqueda />
-              <button onClick={()=>{setModal(true)}}>Agregar Contacto</button>
+              <div className='contenedor1'>
+                <h1 className='directorio'>DIRECTORIO [{contadorContactos}]</h1>
+                <Busqueda />
+                <button className='btnAgregarContacto' onClick={() => { setModal(true) }}>Agregar Contacto</button>
+              </div>
               <ListaContactos>
                 {
                   contactosFiltrados.map((contacto) => {
@@ -38,7 +39,7 @@ function App() {
                   })
                 }
               </ListaContactos>
-              {modal && <AgregaContacto />}
+              {Modal && <AgregaContacto />}
             </React.Fragment>
           )
         }

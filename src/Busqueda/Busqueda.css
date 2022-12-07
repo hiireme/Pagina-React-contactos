@@ -1,0 +1,8 @@
+.Buscador {
+    width: 200px;
+    height: 30px;
+    border: none;
+    border-radius: 10px;
+    padding: 0 5px;
+    background-color: rgb(207, 207, 207);
+}
