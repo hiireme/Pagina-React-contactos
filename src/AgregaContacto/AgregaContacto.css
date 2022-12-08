@@ -1,0 +1,47 @@
+.modal {
+    position: fixed;
+    display: flex;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #111111bd;
+
+}
+
+.modal_container {
+    margin: auto;
+    width: 90%;
+    max-width: 600px;
+    max-height: 90%;
+    border-radius: 6px;
+    padding: 3em 2.5em;
+    display: grid;
+    background-color: white;
+    gap: 1em;
+    place-items: center;
+    grid-auto-columns: 100%;
+}
+
+.Borrar {
+    width: 80px;
+    height: 30px;
+    border: none;
+    border-radius: 10px;
+    padding: 0 5px;
+    background-color: rgb(230, 66, 66);
+    font-weight: bold;
+    color: white;
+}
+
+.submit {
+    width: 80px;
+    height: 30px;
+    border: none;
+    border-radius: 10px;
+    padding: 0 5px;
+    background-color: rgb(118, 198, 59);
+    font-weight: bold;
+    color: white;
+
+}

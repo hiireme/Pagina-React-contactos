@@ -47,7 +47,7 @@ function AgregaContacto() {
                 <input typeof="telefono" placeholder="Telefono" onChange={onChangetelefono}></input>
                 <div>
                     <button className="Borrar" onClick={onClickbtnBorrar}>Borrar</button>
-                    <button typeof="submit" onClick={onClickbtnAgregar}>Guardar</button>
+                    <button className="submit" onClick={onClickbtnAgregar}>Guardar</button>
                 </div>
             </form>
 
