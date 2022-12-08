@@ -8,7 +8,7 @@ function Contacto(props) {
         props.borrarContacto();
     }
     return (
-        <div>
+        <div className="caja1">
             <div className="contenedorContacto">
                 <p>{props.nombre}</p>
                 <p>{props.telefono}</p>

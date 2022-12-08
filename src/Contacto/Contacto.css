@@ -9,12 +9,22 @@
     color: antiquewhite;
 }
 
+*{
+    padding: 3px;
+}
+
+.caja1{
+    padding: 5px;
+}
+
 .contenedorContacto {
+    position: relative;
     font-weight: bold;
     color:rgb(70, 64, 64 );
     background-color: rgb(212, 212, 212);
     border-radius: 10px;
     margin-left: 40%;
     width: 250px;
-    height: 200px;
+    height: 190px;
 }
+
